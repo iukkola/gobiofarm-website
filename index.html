@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoBioFarm - Biochar Solutions for Sustainable Agriculture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.9), rgba(56, 142, 60, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="farmGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%234caf50;stop-opacity:1" /><stop offset="50%" style="stop-color:%23388e3c;stop-opacity:1" /><stop offset="100%" style="stop-color:%232e7d32;stop-opacity:1" /></linearGradient></defs><rect width="1200" height="800" fill="url(%23farmGradient)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 107, 53, 0.4);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2e7d32;
+            font-weight: 700;
+        }
+
+        .what-we-do {
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: #2e7d32;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .products {
+            background: linear-gradient(135deg, #2e7d32, #388e3c);
+            color: white;
+        }
+
+        .products .section-title {
+            color: white;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .product-card h3 {
+            color: #ffeb3b;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .product-benefits {
+            margin-top: 1.5rem;
+        }
+
+        .product-benefits h4 {
+            color: #a5d6a7;
+            margin-bottom: 0.5rem;
+        }
+
+        .team {
+            background: white;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            background: linear-gradient(135deg, #f1f8e9, #e8f5e8);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #c8e6c9;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(46, 125, 50, 0.15);
+        }
+
+        .team-member h3 {
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .team-member .role {
+            color: #66bb6a;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            text-align: center;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #fff3e0;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info strong {
+            color: #fff3e0;
+        }
+
+        .floating-biochar {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0.1;
+            font-size: 2rem;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .stats {
+            background: #1b5e20;
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: #ffeb3b;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.2rem; }
+            .section-title { font-size: 2rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .products-grid { grid-template-columns: 1fr; }
+            .team-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating biochar elements -->
+    <div class="floating-biochar" style="top: 10%; left: 5%; animation-delay: 0s;">🌱</div>
+    <div class="floating-biochar" style="top: 20%; right: 10%; animation-delay: 2s;">🐄</div>
+    <div class="floating-biochar" style="top: 60%; left: 8%; animation-delay: 4s;">🐟</div>
+    <div class="floating-biochar" style="top: 80%; right: 15%; animation-delay: 6s;">🥚</div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>GoBioFarm</h1>
+            <p>Revolutionizing Agriculture with Biochar Technology</p>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Specialized in biochar production for animal feeding (EBC/HACCP certified)</p>
+            <a href="#products" class="cta-button">Discover Our Solutions</a>
+        </div>
+    </section>
+
+    <section class="what-we-do section">
+        <div class="container">
+            <h2 class="section-title">What We Do</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                At GBF, we are dedicated to driving sustainability and productivity in the farming and energy sectors through innovative biochar solutions.
+            </p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🐄</div>
+                    <h3>Dairy Farming</h3>
+                    <p>Our DiGestoChar feed reduces methane emissions by 18%, enhances milk production, and shortens calving intervals, promoting healthier herds and more efficient dairy operations.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🐓</div>
+                    <h3>Poultry Farming</h3>
+                    <p>DiGestoChar improves digestion, resulting in healthier hens, superior egg quality, and faster-growing, stronger broilers.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🐟</div>
+                    <h3>Fish Farming</h3>
+                    <p>Our biochar-enriched feed reduces the need for antibiotics, improves water quality, and accelerates fish growth, supporting more sustainable aquaculture.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Biodigesters</h3>
+                    <p>GBF products optimize energy production by increasing methane yield and stabilizing the digestion process, making biogas production more efficient and reliable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>18%</h3>
+                    <p>Methane Reduction</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1.4L</h3>
+                    <p>Extra Milk/Day</p>
+                </div>
+                <div class="stat-item">
+                    <h3>25g</h3>
+                    <p>Daily Dose</p>
+                </div>
+                <div class="stat-item">
+                    <h3>2019</h3>
+                    <p>Founded</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products section" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <h3>DiGestoChar for Dairy Cows</h3>
+                    <p>An innovative animal feed designed to revolutionize dairy farming. Each 25g/day serving significantly reduces methane emissions while boosting milk production by an additional 1.4 liters per day.</p>
+                    <div class="product-benefits">
+                        <h4>Key Benefits:</h4>
+                        <ul>
+                            <li>18% reduction in methane emissions</li>
+                            <li>1.4L additional milk production daily</li>
+                            <li>Enhanced digestibility in rumen</li>
+                            <li>Reduced calving intervals</li>
+                            <li>Better utilization of grass feed</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <h3>DiGestoChar for Egg-Laying Hens</h3>
+                    <p>Designed to improve digestion in egg-laying hens, leading to healthier birds and enhanced weight gain while reducing feeding frequency and costs.</p>
+                    <div class="product-benefits">
+                        <h4>Key Benefits:</h4>
+                        <ul>
+                            <li>Improved digestion and feed efficiency</li>
+                            <li>Cleaner eggs and better quality</li>
+                            <li>Reduced bacterial enteritis</li>
+                            <li>Lower ammonia emissions</li>
+                            <li>Stronger eggshells</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <h3>DiGestoChar for Broilers</h3>
+                    <p>Significantly enhances digestion in broilers, promoting healthier birds and accelerating weight gain while reducing feed costs.</p>
+                    <div class="product-benefits">
+                        <h4>Key Benefits:</h4>
+                        <ul>
+                            <li>Accelerated weight gain</li>
+                            <li>Reduced feed costs</li>
+                            <li>Better protein synthesis</li>
+                            <li>Improved mineral absorption</li>
+                            <li>Enhanced meat quality</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <h3>DiGestoChar for Fish Farming</h3>
+                    <p>Instrumental in improving breeding conditions by significantly reducing antibiotic needs while enhancing water quality and fish growth.</p>
+                    <div class="product-benefits">
+                        <h4>Key Benefits:</h4>
+                        <ul>
+                            <li>Reduced antibiotic dependency</li>
+                            <li>Improved water quality</li>
+                            <li>Faster fish growth</li>
+                            <li>Enhanced digestion</li>
+                            <li>Better disease resistance</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <h3>Biodigester Enhancement</h3>
+                    <p>Our biochar products significantly enhance biodigester efficiency by optimizing organic material breakdown and increasing methane yield.</p>
+                    <div class="product-benefits">
+                        <h4>Key Benefits:</h4>
+                        <ul>
+                            <li>Increased methane yield</li>
+                            <li>Stabilized digestion process</li>
+                            <li>Reduced harmful by-products</li>
+                            <li>More efficient energy conversion</li>
+                            <li>Cleaner operations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team section">
+        <div class="container">
+            <h2 class="section-title">Our Expert Team</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Founded in 2019, GBF consists of six international experts dedicated to optimizing nutrient use and developing profitable carbon sink cycles on farms worldwide.
+            </p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <h3>Balz Baur</h3>
+                    <p class="role">Environmental Scientist & Founder</p>
+                    <p>Swiss environmental scientist specializing in pyrolysis technology for biochar in Serbia. Owner of Basna d.o.o., producing high-quality biochar according to EBC/HACCP standards.</p>
+                </div>
+                
+                <div class="team-member">
+                    <h3>Branko Petrujkic</h3>
+                    <p class="role">Veterinary Professor</p>
+                    <p>Professor at University of Belgrade's Faculty of Veterinary Medicine with over 10 years of experience in animal feeding optimization. World-leading researcher in biochar animal feed.</p>
+                </div>
+                
+                <div class="team-member">
+                    <h3>Risto Paajanen (MD)</h3>
+                    <p class="role">Technical Expert & Innovator</p>
+                    <p>Engineer who grew up in Germany with extensive experience in Finnish industry and the Foundation for Finnish Invention. Our key innovator and technical expert.</p>
+                </div>
+                
+                <div class="team-member">
+                    <h3>Rauno Karppinen</h3>
+                    <p class="role">Forest Industry Expert</p>
+                    <p>35+ years in forestry with qualification to certify sustainable forests. Former managing director of Forest Association in Ylä-Savo, responsible for forest and wood issues.</p>
+                </div>
+                
+                <div class="team-member">
+                    <h3>Jukka Koivisto</h3>
+                    <p class="role">Middle East Representative</p>
+                    <p>Over 40 years of experience in developing countries, with 19 years in Saudi Arabia. Responsible for clients from the Middle East region.</p>
+                </div>
+                
+                <div class="team-member">
+                    <h3>Ilkka Ukkola</h3>
+                    <p class="role">Business Development</p>
+                    <p>International telecommunications/IT engineer and entrepreneur. Primarily responsible for administrative tasks and developing country projects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-info">
+                <h3>Ready to Transform Your Farm?</h3>
+                <p>Don't hesitate to ask for more information about our products or if you're interested in reselling, cooperating, or partnering with us.</p>
+                
+                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                    <h4 style="color: #fff3e0; margin-bottom: 1rem;">Primary Contact:</h4>
+                    <p><strong>Risto Paajanen</strong></p>
+                    <p>📧 <strong>risto@gobiofarm.com</strong></p>
+                    <p>📱 <strong>+358 40 5540691</strong></p>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <p><em>We specialize in biochar production for animal feeding (EBC/HACCP certified) and are committed to creating sustainable, profitable solutions for farms worldwide.</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.service-card, .product-card, .team-member').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
